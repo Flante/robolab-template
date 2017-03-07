@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-"""
+'''
 Simple stub that calls the 'real' deploy.py in the git submodule without an
 additional path prefix. Passes along any parameters without modification.
 
@@ -12,14 +12,14 @@ unit ev3-robolab-startup.service to be installed and enabled on the target
 device.
 
 For usage, optional arguments, syntax, et cetera please refer to the
-"robolab-deploy" submodule which should have already been initialized.
+'robolab-deploy' submodule which should have already been initialized.
 
 This module: https://github.com/7HAL32/robolab-template
 The submodule: https://github.com/7HAL32/robolab-deploy
 
 Developed as a part of the RoboLab project at TU Dresden.
 (c) 2017 Lutz Thies
-"""
+'''
 
 import sys
 import subprocess
@@ -27,4 +27,5 @@ import subprocess
 # get the full executable path, because windows can't handle our shebang
 PYTHON_EXECUTABLE = sys.executable
 # it's basically a one-liner \o/
-subprocess.call([PYTHON_EXECUTABLE, './robolab-deploy/deploy.py'] + sys.argv[1:])
+subprocess.call([PYTHON_EXECUTABLE,
+                './robolab-deploy/deploy.py'] + sys.argv[1:])
