@@ -22,18 +22,9 @@ Developed as a part of the RoboLab project at TU Dresden.
 """
 
 import sys
-import platform
 import subprocess
 
-# windows needs some special attention
-# but apart from that it's basically a one-lineer \o/
-OS = platform.system()
-if OS is "Windows":
-    # the shebang won't work
-    # therefore, we take the name of the python3 executable in the systems PATH
-    # alternatively: direct full path to the executable
-    # as of March 2017 this should usually be "python"
-    PYHON_PATH = 'python'
-    process = subprocess.call([PYHON_PATH, './robolab-deploy/deploy.py'] + sys.argv[1:])
-else:
-    process = subprocess.call(['./robolab-deploy/deploy.py'] + sys.argv[1:])
+# get the full executable path, because windows can't handle our shebang
+PYTHON_EXECUTABLE = sys.executable
+# it's basically a one-liner \o/
+subprocess.call([PYTHON_EXECUTABLE, './robolab-deploy/deploy.py'] + sys.argv[1:])
