@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 '''
 Simple stub that calls the 'real' deploy.py in the git submodule without an
