@@ -106,7 +106,7 @@ Hopefully updates are only necessary in order to get cool new features that have
 
 ```
 git submodule foreach git pull origin master
-git add
+git add robolab-deploy
 git commit -m "updated submodule to lastest version of the upstream head"
 git push
 ```
