@@ -4,21 +4,17 @@
 Simple stub that calls the 'real' deploy.py in the git submodule without an
 additional path prefix. Passes along any parameters without modification.
 
-To summarize, this script initiates the process of transmitting all source files
-present in the './src/' directory to a remote LEGO MINDSTORMS EV3 robot.
-Aftwards, the execution is started inside a tmux session from main.run() inside
-the main.py and the output is piped back to the host. This requires the systemd
-unit ev3-robolab-startup.service to be installed and enabled on the target
-device.
-
-For usage, optional arguments, syntax, et cetera please refer to the
-'robolab-deploy' submodule which should have already been initialized.
+For usage, optional arguments, syntax, et cetera please refer to the README.md
+of this repository, the 'robolab-deploy' submodule or the RoboLab Docs which
+are accessible through the campus network of TU Dresden via
+http://robolab.inf.tu-dresden.de.
 
 This module: https://github.com/7HAL32/robolab-template
 The submodule: https://github.com/7HAL32/robolab-deploy
 
-Developed as a part of the RoboLab project at TU Dresden.
-(c) 2017 Lutz Thies
+Part of the RoboLab project.
+Released under the MIT License.
+Copyright (c) 2017 Lutz Thies
 '''
 
 import sys
