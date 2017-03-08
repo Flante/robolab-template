@@ -20,7 +20,13 @@ These steps should be only performed by **one** member of your group.
 
   The flag `--recursive` initializes the submodule `robolab-deploy`.
 
-2. Set the remote upstream to your group repository.
+2. Change to the working directory.
+
+ ```
+cd ./robolab-template
+ ```
+
+3. Set the remote upstream to your group repository.
 
   ```
   git remote set-url origin https://bitbucket.org/robolab-<season>-<year>/group-<id>
@@ -32,11 +38,19 @@ These steps should be only performed by **one** member of your group.
 
   `<id>` has been assigned to you at the beginning of the course. Please make sure to include leading zeros and fill up the id to three digits, e.g. group 42 will enter `042`.
 
-3. Verify, if the new upstream has been set successfully.
+4. Verify, if the new upstream has been set successfully.
 
   ```
   git remote -v
   ```
+
+5. Rename the default branch you're currently on to `master`.
+
+ ```
+git branch -m <current_branch> master
+```
+
+ Make sure to enter the correct current branch. This will be the one shown at the GitHub website or in the Git status report which can be brought up via `git status`. For instance it will be `spring-17` for the RoboLab course in Spring 2017.
 
 4. Perform an initial push.
 
