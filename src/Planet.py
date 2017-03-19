@@ -19,7 +19,7 @@ class Planet:
 		"""add a path to the map"""
 		pass
 
-	# example: shortest_path((0,0), (2,2)) returns: [(0, 0, Direction.East), (1, 0, Direction.North), (2, 2, Direction.South)]
+	# example: shortest_path((0,0), (2,2)) returns: [(0, 0, Direction.East), (1, 0, Direction.North)]
 	# example: shortest_path((0,0), (1,2)) returns: None
 	def shortest_path(self, start: Tuple[int,int], target: Tuple[int,int]) -> Optional[List[Tuple[int,int,Direction]]]:
 		"""return a shortest path between two crossings"""
