@@ -2,9 +2,9 @@
 
 Template for the RoboLab courses in spring and autumn which are conducted by the Systems Engineering Group at the Department of Computer Science, TU Dresden. Acts as a base repository that groups clone and then set the upstream to their assigned repo afterwards. Provides scripts to speed up and automate the process of deploying as well as executing Python code on LEGO MINDSTORMS EV3 robots running the customized, Debian based operating system [ev3dev-robolab](https://github.com/7HAL32/ev3dev-robolab). Includes the programming interface which is used to check parts of the students solutions in the final exam.
 
-## About
+## Workflow
 
-Contains a deploy script that syncs Python files from the local [src/](/src/) folder to a remote EV3 brick. This functionality is made available by the submodule [robolab-deploy](https://github.com/7HAL32/robolab-deploy). Its contents were not directly included in this repository, as the submodule allows easier updating without manually adding files to a groups repository. Afterwards this scripts attaches to a pre-loaded tmux session on the remote device, which is running `python3.6` including some modules that are already imported. These, for instance the [https://github.com/rhempel/ev3dev-lang-python](Python language bindings for the EV3), usually take way to long for practical development and debugging. The script further performs a reload on the [`main.py`](/src/main.py) file in the remote `/home/robot/src/` folder and starts execution from `main.run()`. This is made possible by the custom systemd service [ev3-robolab-startup](https://github.com/7HAL32/ev3-robolab-startup) that runs automatically on our OS after boot. Also comes with a simple example `main.py` file that prints `Hello World!` and the programming interface for the corresponding task. After the exam parts of the solutions of all group repositories will be checked and tested for correctness.
+Contains a deploy script that syncs Python files from the local [src/](/src/) folder to a remote EV3 brick. This functionality is made available by the submodule [robolab-deploy](https://github.com/7HAL32/robolab-deploy). Its contents were not directly included in this repository, as the submodule allows easier updating without manually adding files to a groups repository. Afterwards this scripts attaches to a pre-loaded tmux session on the remote device, which is running `python3.6` including some modules that are already imported. These, for instance the [Python language bindings for the EV3](https://github.com/rhempel/ev3dev-lang-python), usually take way to long for practical development and debugging. The script further performs a reload on the [`main.py`](/src/main.py) file in the remote `/home/robot/src/` folder and starts execution from `main.run()`. This is made possible by the custom systemd service [ev3-robolab-startup](https://github.com/7HAL32/ev3-robolab-startup) that runs automatically on our OS after boot. Also comes with a simple example `main.py` file that prints `Hello World!` and the programming interface for the corresponding task. After the exam parts of the solutions of all group repositories will be checked and tested for correctness.
 
 The most recent version regarding the current RoboLab can be found in the default branch, which is named and set according to this course. A clean "version" of the template is always available from the `master` branch.
 
@@ -22,9 +22,9 @@ These steps should be only performed by **one** member of your group.
 
 2. Change to the working directory.
 
- ```
-cd ./robolab-template
- ```
+  ```
+  cd ./robolab-template
+  ```
 
 3. Set the remote upstream to your group repository.
 
@@ -46,19 +46,23 @@ cd ./robolab-template
 
 5. Rename the default branch you're currently on to `master`.
 
- ```
-git branch -m <current_branch> master
-```
+  ```
+  git branch -m <current_branch> master
+  ```
 
- Make sure to enter the correct current branch. This will be the one shown at the GitHub website or in the Git status report which can be brought up via `git status`. For instance it will be `spring-17` for the RoboLab course in Spring 2017.
+  Make sure to enter the correct current branch. This will be the one shown at the GitHub website or in the Git status report which can be brought up via `git status`. For instance it will be `spring-17` for the RoboLab course in Spring 2017.
 
-4. Perform an initial push.
+6. Perform an initial push.
 
   ```
   git push origin master
   ```
 
-Now the other members of your team are ready to clone your group repository. Make sure to enter the corresponding URL from step (2).
+7. Now the other members of your team are ready to clone your group repository. Make sure to enter the corresponding URL from step (3) and also use the `--recursive` flag.
+
+ ```
+  git clone --recursive https://bitbucket.org/robolab-<season>-<year>/group-<id>
+ ```
 
 ## Dependencies
 
@@ -94,7 +98,7 @@ The variable `PYTHON_EXECUTABLE` contains either the shortcut registered in your
 
 Directory for all source files that will be synced to the brick.
 
-Keep in mind, that many files slow down the process of copying, especially when relying on wireless connections to the remote EV3. It is therefore recommended to keep only recent and relevant files in this folder.
+Keep in mind, that many files slow down the process of copying, especially when relying on wireless connections to the remote EV3\. It is therefore recommended to keep only recent and relevant files in this folder.
 
 ### ./src/main.py
 
@@ -132,17 +136,22 @@ For additional information on usage, optional arguments, syntax, et cetera simpl
 ## Credits
 
 Contributors to robolab-template:
-* [Frank Busse](https://github.com/251) (interface)
-* Lutz Thies (description and deploy stub)
+
+- [Frank Busse](https://github.com/251) (interface)
+- Lutz Thies (description and deploy stub)
 
 Contributors to [robolab-deploy](ttps://github.com/7HAL32/robolab-deploy) (submodule):
-* Version of 2016
- * [Felix Döring](https://github.com/h4llow3En)
- * [Felix Wittwer](https://github.com/Feliix42)
-* Version of 2017
- * [Paul Genssler](https://github.com/krabo0om) (systemd restart, debugging and testing for windows, emotional support)
- * Lutz Thies (rewrite and redesign, i.e. systemd, tmux, reloader)
 
-Part of the RoboLab project. <br/>
-Released under the [MIT License](/LICENSE). <br/>
+- Version of 2016
+
+  - [Felix Döring](https://github.com/h4llow3En)
+  - [Felix Wittwer](https://github.com/Feliix42)
+
+- Version of 2017
+
+  - [Paul Genssler](https://github.com/krabo0om) (systemd restart, debugging and testing for windows, emotional support)
+  - Lutz Thies (rewrite and redesign, i.e. systemd, tmux, reloader)
+
+Part of the RoboLab project.<br>
+Released under the [MIT License](/LICENSE).<br>
 Copyright © 2017 Lutz Thies
