@@ -1,5 +1,8 @@
+#!/usr/bin/env python3
+
 import ev3dev.ev3 as ev3
-from Planet import Direction, Planet
+from hamming_code import HammingCode
+from stack_machine import StackMachine
 
 def run():
     # the execution of all code shall be started from within this function
